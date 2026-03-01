@@ -14,10 +14,7 @@ class PoseListener(Node):
             10
         )
 
-    def pose_callback(self, msg):
-        self.get_logger().info(
-            f'x={msg.x:.2f}, y={msg.y:.2f}, theta={msg.theta:.2f}'
-        )
+    # Buat fungsi untuk menerima data pose dan ditampilkan di terminal
 
 
 def main():

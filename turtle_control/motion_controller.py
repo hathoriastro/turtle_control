@@ -47,22 +47,15 @@ class MotionController(Node):
                 rclpy.shutdown()
                 break
             elif key in ('w', 'a', 's', 'd'):
-                self.keys_pressed = {key}  # Only track latest key
+                self.keys_pressed = {key}
             else:
-                self.keys_pressed = set()  # Stop on any other key
+                self.keys_pressed = set()
 
     def pose_callback(self):
         cmd = Twist()
 
-        if 'w' in self.keys_pressed:
-            cmd.linear.x = self.linear_speed
-        elif 's' in self.keys_pressed:
-            cmd.linear.x = -self.linear_speed
-
-        if 'a' in self.keys_pressed:
-            cmd.angular.z = self.angular_speed
-        elif 'd' in self.keys_pressed:
-            cmd.angular.z = -self.angular_speed
+        if 'w' in self.keys_pressed: # Ini contoh untuk maju, 
+            cmd.linear.x = self.linear_speed # buat contoh lain untuk mundur, kiri, kanan
 
         self.cmd_pub.publish(cmd)
 

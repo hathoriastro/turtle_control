@@ -17,8 +17,7 @@ class MotionPublisher(Node):
 
     def publish_cmd(self):
         msg = Twist()
-        msg.linear.x = 2.0
-        msg.angular.z = 1.0
+        # Lengkapi kodenya disini, buat agar turtle bisa bergerak membentuk lingkaran
 
         self.publisher_.publish(msg)
         self.get_logger().info('Publishing velocity command')
